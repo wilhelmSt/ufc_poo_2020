@@ -22,7 +22,8 @@ class Pessoa {
     CoronaVirus nivelDoenca;
     boolean imune;
 
-    Pessoa(int idadeP, boolean grupoRiscoP, boolean mascaraP, boolean doenteP, CoronaVirus virus) {
+    Pessoa(int idadeP, boolean grupoRiscoP, boolean mascaraP, boolean doenteP) {
+        CoronaVirus virus = new CoronaVirus();
         if(grupoRiscoP == false && idadeP >= 60) {
             grupoRiscoP = true;
         }
@@ -124,7 +125,8 @@ public class Main {
         System.out.println("|       2 - Bonaparte       |");
         System.out.println("+---------------------------+");
 
-        return aux;
+        Scanner resu = new Scanner(System.in);
+        return resu;
     }
 }
 
@@ -152,21 +154,21 @@ public class Interativo {
             aux = input.nextLine();
 
             if(aux == 1) {
-                result = Escolha();
+                result = Main.Escolha();
                 if(result == 1) {
                     Napoleao.contatoPessoal(Bonaparte, virus);
                 } else {
                     Bonaparte.contatoPessoal(Napoleao, virus);
                 }
             } else if (aux == 2) {
-                result = Escolha();
+                result = Main.Escolha();
                 if(result == 1) {
                     Napoleao.receberVacina(Napoleao, vacinar);
                 } else {
                     Bonaparte.receberVacina(Bonaparte, vacinar);
                 }
             } else if (aux  == 3) {
-                result = Escolha();
+                result = Main.Escolha();
                 if(result == 1) {
                     Napoleao.tratamento(Napoleao);
                 } else {
